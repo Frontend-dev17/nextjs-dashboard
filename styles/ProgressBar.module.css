@@ -1,0 +1,64 @@
+.progressbarscontainer {
+    width: 338px;
+    background-color: white;
+    border-radius: 30px;
+    border: 1px solid #EFF0F6;
+    padding: 28px 32px;
+    box-shadow: 0 11px 60px rgba(226, 236, 249, 0.5);
+}
+
+.barsection {
+    margin-bottom: 10px;
+}
+
+.title {
+    font-weight: 600;
+    font-size: 20px;
+    margin-bottom: 12px;
+}
+
+.progressbarcontainer {
+    width: 100%;
+    max-width: 400px;
+    text-align: center;
+}
+
+.progressbar {
+    background-color: #EEEEEE;
+    height: 8px;
+    border-radius: 5px;
+    overflow: hidden;
+}
+
+.progress {
+    height: 8px;
+    line-height: 20px;
+    text-align: center;
+    color: #fff;
+    background-color: rgba(22, 192, 152, 0.38);
+    transition: width 0.2s ease-in-out;
+    border-radius: 4px;
+}
+
+.one {
+    height: 8px;
+    line-height: 20px;
+    text-align: center;
+    color: #fff;
+    transition: width 0.2s ease-in-out;
+    border-radius: 4px;
+    background: rgba(255, 107, 107, 1);
+}
+
+.status {
+    color: #A7A7A7;
+    font-size: 14px;
+    margin-bottom: 6px;
+}
+
+.percentage {
+    color: #A7A7A7;
+    font-size: 14px;
+    text-align: right;
+    margin-top: 2px;
+}

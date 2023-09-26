@@ -1,0 +1,36 @@
+.homepage-container {
+    font-family: 'Inter';
+}
+
+.rightsidecontainer {
+    height: 100%;
+    margin-left: 260px;
+    padding: 30px 30px 20px 24px;
+    background-color: #F9F9F9;
+    position: relative;
+}
+
+.hrstyle {
+    border: 1px solid rgba(70, 70, 70, 0.1);
+    margin-top: 22px;
+    margin-bottom: 50px;
+}
+
+.removeicon {
+    position: absolute;
+    right: 44px;
+    top: 10%;
+    border-radius: 50%;
+    background: #EFF0F6;
+    width: 30px;
+    height: 30px;
+    text-align: center;
+    font-size: 22px;
+}
+
+.progressbarssection {
+    padding: 14px 24px;
+    display: flex;
+    justify-content: space-between;
+    gap: 16px;
+}

@@ -4,29 +4,70 @@ import CUSTOMER_DATA from '../data/data';
 import { useState } from "react";
 
 const ActiveMembers = () => {
-    const [currentPage, setCurrentPage] = useState(1);
     const data = CUSTOMER_DATA;
+    const [currentPage, setCurrentPage] = useState(1);
+    const [searchInput, setSearchInput] = useState('')
+    const [filteredData, setFilteredData] = useState(data);
+    const [sortingOption, setSortingOption] = useState("Active");
+
+
     const tableHeaders = Object.keys(data[0]);
 
     if (data.length === 0) {
         return <div>No data available.</div>;
     }
 
+    const handleSearch = (event) => {
+        const query = event.target.value.toLowerCase();
+        setSearchInput(query);
+
+        const filtered = data.filter((row) =>
+            Object.values(row).some((value) =>
+                String(value).toLowerCase().includes(query)
+            )
+        );
+
+        setFilteredData(filtered);
+        setCurrentPage(1);
+    };
+
+
+
+
+
+
+    const handleSortingOptionChange = (event) => {
+        const selectedOption = event.target.value;
+        setSortingOption(selectedOption);
+        setCurrentPage(1);
+    };
+
+    // Sort the data based on the sorting option
+    const sortedData = filteredData.sort((a, b) => {
+        if (sortingOption === "Active") {
+            return a.status.localeCompare(b.status);
+        } else if (sortingOption === "Inactive") {
+            return b.status.localeCompare(a.status);
+        }
+        return 0; // Default case
+    });
+
+
     //pagination codes
     const itemsPerPage = 8;
-
     const indexOfLastItem = currentPage * itemsPerPage;
     const indexOfFirstItem = indexOfLastItem - itemsPerPage;
-    const currentItems = data.slice(indexOfFirstItem, indexOfLastItem);
-
-
-    const totalPages = Math.ceil(data.length / itemsPerPage);
+    const currentItems = sortedData.slice(indexOfFirstItem, indexOfLastItem);
+    const totalPages = Math.ceil(sortedData.length / itemsPerPage);
 
     const handlePageChange = (newPage) => {
         setCurrentPage(newPage);
     };
 
     const pageNumbers = Array.from({ length: totalPages }, (_, i) => i + 1);
+
+
+
 
     return (
         <div className={styles.activememberscontianer}>
@@ -38,14 +79,15 @@ const ActiveMembers = () => {
                             <path d="M21.7768 21.6074L17.292 17.1631" stroke="#7E7E7E" strokeWidth="2.04339" strokeLinecap="round" strokeLinejoin="round" />
                         </svg>
                     </span>
-                    <input type="search" placeholder="Search" className={styles.inputfield} />
+                    <input type="search" placeholder="Search" className={styles.inputfield} onChange={handleSearch} value={searchInput} />
                 </div>
                 <div className={styles.dropdownsection}>
                     <span className={styles.title}>Sort by : </span>
-                    <select className={styles.dropdownselect} defaultValue="Newest">
-                        <option className={styles.options}>Newest</option>
-                        <option className={styles.options}>Oldest</option>
-                        <option className={styles.options}>Past 24hours</option>
+                    <select className={styles.dropdownselect} defaultValue="Newest" value={sortingOption}
+                        onChange={handleSortingOptionChange}>
+                        <option className={styles.options} value="Active">Active</option>
+                        <option className={styles.options} value="Inactive">Inactive</option>
+                        {/* <option className={styles.options}>Past 24hours</option> */}
                     </select>
                 </div>
 
@@ -60,8 +102,9 @@ const ActiveMembers = () => {
                             ))}
                         </tr>
                     </thead>
+
                     <tbody>
-                        {currentItems.map((row, index) => (
+                        {sortedData.slice(indexOfFirstItem, indexOfLastItem).map((row, index) => (
                             <tr key={index}>
                                 {tableHeaders.map((header) => (
                                     <td key={header} className={header === 'status' ? row[header].toLowerCase() : ''}>
@@ -77,6 +120,7 @@ const ActiveMembers = () => {
                             </tr>
                         ))}
                     </tbody>
+
                 </table>
             </div>
 

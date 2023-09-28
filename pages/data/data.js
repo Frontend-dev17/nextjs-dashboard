@@ -6,7 +6,7 @@ const CUSTOMER_DATA =
             "phoneNumber": "(225) 555-0118",
             "email": "john@example.com",
             "country": "United States",
-            "status": "Active"
+            "status": "Active",
         },
         {
             "customerName": "Alice Smith",
@@ -79,7 +79,56 @@ const CUSTOMER_DATA =
             "email": "vladimir@example.ru",
             "country": "Russia",
             "status": "Inactive"
-        }
+        },
+        {
+            "customerName": "Mohammed",
+            "company": "Startups",
+            "phoneNumber": "(225) 555-0190",
+            "email": "mohammed@example",
+            "country": "United Arab Emirates",
+            "status": "Active"
+        },
+        {
+            "customerName": "Lily",
+            "company": "EcoTech",
+            "phoneNumber": "(225) 555-0118",
+            "email": "lily@example.cn",
+            "country": "China",
+            "status": "Inactive"
+        },
+        {
+            "customerName": "Hiroshi",
+            "company": "Tech Japan",
+            "phoneNumber": "(225) 555-0190",
+            "email": "hiroshi@example",
+            "country": "Japan",
+            "status": "Active"
+        },
+        {
+            "customerName": "Isabella",
+            "company": "Global Enterprises",
+            "phoneNumber": "(225) 555-0118",
+            "email": "isabella@example",
+            "country": "Italy",
+            "status": "Inactive"
+        },
+        {
+            "customerName": "Sophie",
+            "company": "Paris Innovations",
+            "phoneNumber": "(225) 555-0118",
+            "email": "sophie@example.fr",
+            "country": "France",
+            "status": "Active"
+        },
+        {
+            "customerName": "Vladimir",
+            "company": "IBM",
+            "phoneNumber": "(225) 555-0118",
+            "email": "vladimir@example.ru",
+            "country": "Russia",
+            "status": "Inactive"
+        },
+
     ]
 
 
